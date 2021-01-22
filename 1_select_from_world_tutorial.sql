@@ -32,3 +32,26 @@ WHERE name LIKE '%United%'
 SELECT name, population, area
 FROM world
 where area > 3000000 OR population > 250000000
+
+-- Show the countries that are big by area (more than 3 million) or big by population (more than 250 million) but not both. Show name, population and area.
+SELECT name, population, area
+FROM world
+where area > 3000000 XOR population > 250000000 
+
+-- Show the name and population in millions and the GDP in billions for the countries of the continent 'South America'.
+-- Use the ROUND function to show the values to two decimal places.
+SELECT name, ROUND (population/1000000,2), ROUND(GDP/1000000000,2)
+FROM world
+where continent = 'South America'
+
+-- Show the name and per-capita GDP for those countries with a GDP of at least one trillion (1000000000000; that is 12 zeros). Round this value to the nearest 1000.
+SELECT name, ROUND((gdp/population/1000)) * 1000
+FROM world
+WHERE GDP > 1000000000000
+
+-- Show the name and capital where the name and the capital have the same number of characters.
+SELECT name, capital
+  FROM world
+ WHERE LENGTH(NAME) = LENGTH(CAPITAL)
+
+-- Show the name and the capital where the first letters of each match. Don't include countries where the name and the capital are the same word.
