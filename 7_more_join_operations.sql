@@ -69,9 +69,3 @@ SELECT name
 FROM (actor JOIN casting ON actorid = actor.id) JOIN movie ON movieid = movie.id 
 WHERE movieid IN (SELECT movieid FROM  (actor JOIN casting ON actorid = actor.id) JOIN movie ON movieid = movie.id 
 WHERE name = 'Art Garfunkel') AND name != 'Art Garfunkel'
-
-
-
-
-
-
